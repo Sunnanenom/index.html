@@ -61,11 +61,12 @@ body::before{
 .m-head span{display:block;font-size:11px;color:#666;font-weight:600}
 .m-title{font-family:'IBM Plex Sans Thai',sans-serif;font-size:24px;font-weight:700;color:#ff6b9d;margin-bottom:12px}
 
-.reels-window{background:linear-gradient(180deg,#e5e7eb,#d1d5db);border-radius:18px;padding:12px 10px;margin-bottom:12px;box-shadow:inset 0 3px 12px rgba(0,0,0,0.12);position:relative;overflow:hidden}
-.reels-window::after{content:"";position:absolute;left:0;right:0;top:50%;height:68px;margin-top:-34px;border-top:2.5px solid rgba(255,107,157,0.55);border-bottom:2.5px solid rgba(255,107,157,0.55);background:linear-gradient(180deg,rgba(255,107,157,0.08),transparent,rgba(255,107,157,0.08));pointer-events:none;z-index:2}
+.reels-window{background:linear-gradient(180deg,#fff0f5,#ffe4ec);border-radius:18px;padding:12px 10px;margin-bottom:12px;box-shadow:inset 0 3px 14px rgba(255,107,157,0.12);position:relative;overflow:hidden;border:1px solid rgba(255,182,193,0.5)}
+.reels-window::after{content:"";position:absolute;left:0;right:0;top:50%;height:68px;margin-top:-34px;border-top:2.5px solid rgba(255,107,157,0.45);border-bottom:2.5px solid rgba(255,107,157,0.45);background:linear-gradient(180deg,rgba(255,107,157,0.1),transparent,rgba(255,107,157,0.1));pointer-events:none;z-index:2}
 .reels{display:flex;gap:8px;justify-content:center}
-.reel{width:100px;height:116px;background:linear-gradient(180deg,#f3f4f6,#e5e7eb);border-radius:14px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.06)}
+.reel{width:100px;height:116px;background:linear-gradient(180deg,#ffffff,#fff5f8);border-radius:14px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(255,107,157,0.12),0 2px 8px rgba(255,107,157,0.08)}
 .reel-inner{position:absolute;left:0;right:0;top:0;will-change:transform}
+.reel-inner.spinning{filter:blur(1.2px);opacity:0.9}
 .reel-item{height:116px;display:flex;align-items:center;justify-content:center;font-size:44px}
 
 .m-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:6px}
@@ -261,6 +262,28 @@ body::before{
       </div>
       <button type="button" id="btn-final" onclick="goStep3()" class="btn-main" disabled>ทำภารกิจให้ครบก่อน</button>
     </div>
+
+    <!-- วิธีสอนรับ -->
+    <div style="margin-top:18px;text-align:left;">
+      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:0;overflow:hidden;">
+        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#1a1a1a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
+          <span><i class="fas fa-question-circle" style="color:#ff6b9d;margin-right:6px;"></i> วิธีสอนรับเพชร (สำหรับมือใหม่)</span>
+          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
+        </summary>
+        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">1.</b> กรอก UID Free Fire ของคุณด้านบน</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">3.</b> เมื่อได้ 💎💎💎 ระบบจะแสดงหน้ายินดีด้วย</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Free Fire 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">6.</b> ทำครบแล้วกดยืนยัน → รอรับเพชรเข้า UID ภายใน 5-15 นาที</div>
+          <div style="background:#fff5f8;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9d174d;">
+            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับเพชรทันที” ในหน้าสุดท้ายได้เลย
+          </div>
+        </div>
+      </details>
+    </div>
+
     <div id="p2-loading" class="hidden">
       <div style="width:42px;height:42px;border:3px solid #e2e8f0;border-top:3px solid #ff6b9d;border-radius:50%;animation:spin .8s linear infinite;margin:24px auto 10px;"></div>
       <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังจองคิวโอนเพชร...</p>
@@ -333,6 +356,28 @@ body::before{
     </div>
     <div style="font-size:13px;font-weight:700;color:#1e293b;margin:20px 0 2px;">เวลาที่เหลือในการทำภารกิจ</div>
     <div id="timer" style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:40px;font-weight:700;color:#e11d48;">23:01</div>
+
+    <!-- วิธีสอนรับ -->
+    <div style="margin-top:18px;text-align:left;">
+      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:0;overflow:hidden;">
+        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#1a1a1a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
+          <span><i class="fas fa-question-circle" style="color:#ff6b9d;margin-right:6px;"></i> วิธีสอนรับเพชร (สำหรับมือใหม่)</span>
+          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
+        </summary>
+        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">1.</b> กรอก UID Free Fire ของคุณด้านบน</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">3.</b> เมื่อได้ 💎💎💎 ระบบจะแสดงหน้ายินดีด้วย</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Free Fire 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">6.</b> ทำครบแล้วกดยืนยัน → รอรับเพชรเข้า UID ภายใน 5-15 นาที</div>
+          <div style="background:#fff5f8;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9d174d;">
+            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับเพชรทันที” ในหน้าสุดท้ายได้เลย
+          </div>
+        </div>
+      </details>
+    </div>
+
   </div>
 </div>
 
@@ -383,6 +428,51 @@ buildReels();
 
 function notify(title,text,icon){Swal.fire({title,html:text,icon,confirmButtonColor:"#e11d48"})}
 
+
+// ===== SOUND EFFECTS (Web Audio) =====
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let actx = null;
+function ensureAudio(){
+  if(!actx) actx = new AudioCtx();
+  if(actx.state === "suspended") actx.resume();
+}
+function playTick(freq, dur, vol){
+  try{
+    ensureAudio();
+    const t = actx.currentTime;
+    // soft click: short sine + noise-like low sine
+    const o = actx.createOscillator();
+    const o2 = actx.createOscillator();
+    const g = actx.createGain();
+    o.type = "sine";
+    o.frequency.value = freq;
+    o2.type = "triangle";
+    o2.frequency.value = freq * 0.5;
+    g.gain.setValueAtTime(Math.min(vol * 1.8, 0.35), t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    o.connect(g); o2.connect(g); g.connect(actx.destination);
+    o.start(t); o2.start(t);
+    o.stop(t + dur); o2.stop(t + dur);
+  }catch(e){}
+}
+function playWin(){
+  try{
+    ensureAudio();
+    const notes = [523.25, 659.25, 783.99, 1046.5]; // C5 E5 G5 C6
+    notes.forEach((f,i)=>{
+      const t = actx.currentTime + i * 0.11;
+      const o = actx.createOscillator();
+      const g = actx.createGain();
+      o.type = "sine";
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0.32, t);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+      o.connect(g); g.connect(actx.destination);
+      o.start(t); o.stop(t + 0.5);
+    });
+  }catch(e){}
+}
+
 function doSpin(){
   if(spinning)return;
   const val=document.getElementById("uid-input").value.trim();
@@ -391,54 +481,81 @@ function doSpin(){
   spinning=true;
   const btn=document.getElementById("spinBtn");
   btn.disabled=true;btn.textContent="...";
+  ensureAudio();
 
-  // Reset position first
   for(let r=0;r<3;r++){
     const el=document.getElementById("r"+r);
     el.style.transition="none";
     el.style.transform="translateY(0)";
+    el.classList.remove("spinning");
   }
 
-  // Force land on diamond (every 8th item is 💎)
-  // First two reels: fast + lots of spins, last reel: slow for big suspense
-  requestAnimationFrame(()=>{
-    const targets=[40, 48, 56]; // all multiples of 8 → 💎
-    const durs=[1600, 2200, 4800]; // last one nice and slow
-    for(let r=0;r<3;r++){
-      const el=document.getElementById("r"+r);
-      const dist=targets[r]*H;
-      el.style.transition=`transform ${durs[r]}ms cubic-bezier(0.07,0.75,0.12,1)`;
-      el.style.transform=`translateY(-${dist}px)`;
-    }
-  });
+  const finalIndex=[48,56,64];
+  const totalSteps=[48,56,64];
+  let current=[0,0,0];
+  let finished=[false,false,false];
 
-  setTimeout(()=>{
-    spinning=false;
-    btn.disabled=false;
-    btn.textContent="START";
-    document.getElementById("win-uid-text").textContent=val;
-    document.getElementById("win-popup").classList.add("show");
-    window._spinUID=val;
+  function tickReel(r){
+    if(finished[r])return;
+    current[r]++;
+    const el=document.getElementById("r"+r);
+    el.style.transition="transform 0.08s cubic-bezier(0.25,0.1,0.25,1)";
+    el.style.transform="translateY(-"+(current[r]*H)+"px)";
+    playTick(520+r*60+Math.random()*80, 0.05, 0.22);
 
-    // 3 second read lock
-    const winBtn = document.getElementById("winBtn");
-    const winTxt = document.getElementById("winBtnText");
-    winBtn.disabled = true;
-    winBtn.style.opacity = "0.6";
-    let left = 3;
-    winTxt.textContent = "รออ่านสักครู่... " + left;
-    const cd = setInterval(()=>{
-      left--;
-      if(left <= 0){
-        clearInterval(cd);
-        winBtn.disabled = false;
-        winBtn.style.opacity = "1";
-        winTxt.textContent = "ทำภารกิจต่อ →";
-      } else {
-        winTxt.textContent = "รออ่านสักครู่... " + left;
+    if(current[r]>=totalSteps[r]){
+      finished[r]=true;
+      el.classList.remove("spinning");
+      el.style.transition="transform 0.15s ease-out";
+      el.style.transform="translateY(-"+(finalIndex[r]*H)+"px)";
+      if(finished.every(Boolean)){
+        setTimeout(function(){
+          spinning=false;
+          btn.disabled=false;
+          btn.textContent="START";
+          document.getElementById("win-uid-text").textContent=val;
+          document.getElementById("win-popup").classList.add("show");
+          window._spinUID=val;
+          playWin();
+          const winBtn=document.getElementById("winBtn");
+          const winTxt=document.getElementById("winBtnText");
+          winBtn.disabled=true;
+          winBtn.style.opacity="0.6";
+          let left=3;
+          winTxt.textContent="รออ่านสักครู่... "+left;
+          const cd=setInterval(function(){
+            left--;
+            if(left<=0){
+              clearInterval(cd);
+              winBtn.disabled=false;
+              winBtn.style.opacity="1";
+              winTxt.textContent="ทำภารกิจต่อ →";
+            }else{
+              winTxt.textContent="รออ่านสักครู่... "+left;
+            }
+          },1000);
+        },350);
       }
-    }, 1000);
-  }, 5200);
+      return;
+    }
+
+    var delay;
+    var progress=current[r]/totalSteps[r];
+    if(r<2){
+      delay = progress > 0.88 ? 90 + (progress-0.88)*500 : 32;
+    }else{
+      if(progress < 0.5) delay = 32;
+      else if(progress < 0.7) delay = 60;
+      else if(progress < 0.85) delay = 120;
+      else if(progress < 0.93) delay = 200;
+      else delay = 300;
+    }
+    setTimeout(function(){tickReel(r);},delay);
+  }
+
+  setTimeout(function(){document.getElementById("r0").classList.add("spinning");tickReel(0);},80);
+  setTimeout(function(){document.getElementById("r1").classList.add("spinning");tickReel(1);},180);
+  setTimeout(function(){document.getElementById("r2").classList.add("spinning");tickReel(2);},280);
 }
 
 function closeWin(){
