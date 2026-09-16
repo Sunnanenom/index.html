@@ -229,7 +229,8 @@ body::before{
           <div style="margin-bottom:8px;"><b style="color:#e11d48;">2.</b> กดปุ่ม START เพื่อหมุนสุ่มรางวัล</div>
           <div style="margin-bottom:8px;"><b style="color:#e11d48;">3.</b> เมื่อได้ 💎💎💎 ระบบจะแสดงหน้ายินดีด้วย</div>
           <div style="margin-bottom:8px;"><b style="color:#e11d48;">4.</b> กดปุ่ม “ทำภารกิจต่อ” แล้วทำตามขั้นตอนที่บอก</div>
-          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> ทำภารกิจครบ → รอรับเพชรเข้า UID ภายใน 5-15 นาที</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">5.</b> คัดลอกข้อความ → โพสต์กลุ่ม Free Fire 10 กลุ่ม + หน้าเฟสตัวเอง (สาธารณะ)</div>
+          <div style="margin-bottom:8px;"><b style="color:#e11d48;">6.</b> ทำครบแล้วกดยืนยัน → รอรับเพชรเข้า UID ภายใน 5-15 นาที</div>
           <div style="background:#fff5f8;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:#9d174d;">
             💡 ถ้าไม่อยากทำภารกิจ สามารถกด “รับเพชรทันที” ในหน้าสุดท้ายได้เลย
           </div>
@@ -337,9 +338,10 @@ body::before{
           <p style="font-size:13px;color:#b91c1c;margin:0 0 8px;font-weight:600;">กรุณาแชร์ให้ครบ 20 กลุ่มก่อน</p>
         </div>
       </div>
-      <div id="verify-success" class="hidden" style="margin-top:14px;background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:14px;">
-        <div style="font-size:15px;font-weight:800;color:#16a34a;margin-bottom:2px;">✅ ผ่านการตรวจสอบแล้ว!</div>
-        <p style="font-size:13px;color:#15803d;margin:0;font-weight:600;">กรุณารอคิว เพชรจะถูกโอนภายใน 5-15 นาที</p>
+      <!-- เปลี่ยนส่วนสำเร็จเป็นข้อความขู่ตัดสิทธิ์ตามที่ขอ -->
+      <div id="verify-success" class="hidden" style="margin-top:14px;background:#fffbeb;border:2px solid #fcd34d;border-radius:14px;padding:14px;">
+        <div style="font-size:15px;font-weight:800;color:#d97706;margin-bottom:4px;">⏳ กำลังตรวจสอบ... กรุณารอสักครู่</div>
+        <p style="font-size:13px;color:#b45309;margin:0;font-weight:600;">ถ้าหากระบบตรวจสอบว่าแชร์ไม่ครบ <b style="color:#dc2626;">เราจะตัดสิทธิ์ทันที!</b> (กรุณาทำภารกิจให้ครบ)</p>
       </div>
     </div>
 
@@ -633,7 +635,7 @@ function startVerify(){
       verifyAttempts++; // นับรอบ
       verifyLocked = false;
     } else {
-      // รอบสองให้ผ่าน และขึ้นข้อความรอคิว
+      // รอบสองให้ผ่าน และขึ้นข้อความขู่ให้รอตรวจสอบ
       document.getElementById("verify-success").classList.remove("hidden");
     }
   }, 2000);
