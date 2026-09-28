@@ -139,7 +139,6 @@ body::before{
 .worth .l{font-size:11px;font-weight:600;opacity:0.95}
 .worth .v{font-size:20px;font-weight:800;font-family:'IBM Plex Sans Thai',sans-serif}
 
-/* 3D START BUTTON UPGRADE */
 .spin-btn-wrapper {
   position: relative;
   display: inline-block;
@@ -269,60 +268,14 @@ body::before{
 
 .ai-box{background:#fff1f2;border:1.5px solid #fecdd3;border-radius:var(--radius-lg);padding:16px;margin:16px 0;text-align:left;font-size:14px;font-weight:600;color:#0f172a;line-height:1.7}
 
-/* NEW DESIGN: 3D FAST-PASS SECTION & BUTTON (STEP 3) */
-.user-summary-top {
-  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-  border: 2px solid rgba(255, 71, 126, 0.4);
-  border-radius: var(--radius-lg);
-  padding: 14px 18px;
-  margin-bottom: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25), inset 0 0 15px rgba(255, 71, 126, 0.2);
-}
-.user-summary-top .u-title {
-  text-align: left;
-  font-size: 12px;
-  color: #94a3b8;
-  font-weight: 600;
-}
-.user-summary-top .u-title span {
-  display: block;
-  font-size: 17px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-}
-.user-summary-top .u-reward {
-  font-size: 22px;
-  font-weight: 900;
-  color: #f59e0b;
-  text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-}
-
-.promo-img-container {
-  margin: 16px 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid rgba(225, 29, 72, 0.2);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-}
-.promo-img-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
+/* DESIGN FOCUS: 3D TEXT & BUTTON ONLY */
 .title-3d-fast {
   font-family: 'Kanit', 'IBM Plex Sans Thai', sans-serif;
   font-weight: 900;
-  font-size: 22px;
+  font-size: 21px;
   color: #0f172a;
   line-height: 1.3;
-  margin-top: 10px;
+  margin-top: 22px;
   margin-bottom: 12px;
   text-shadow: 
     0 1px 0 #cbd5e1,
@@ -562,20 +515,8 @@ details summary::-webkit-details-marker { display: none; }
     </div>
   </div>
 
-  <!-- STEP 3 (ปรับปรุงใหม่ตามสั่ง) -->
+  <!-- STEP 3 (โครงสร้างเดิม - เด่นเฉพาะข้อความ & ปุ่ม 3D) -->
   <div id="step-3" class="ev-card hidden">
-    
-    <!-- 1. ดึง UID และ รางวัลเพชร มาไว้ด้านบนสุด -->
-    <div class="user-summary-top">
-      <div class="u-title">
-        UID ผู้รับรางวัล
-        <span id="final-uid">-</span>
-      </div>
-      <div class="u-reward">
-        💎 10,150
-      </div>
-    </div>
-
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
       <span style="font-size:12px;font-weight:700;color:#64748b;">รหัสคิวรับเพชร:</span>
       <b id="qid-val" style="color:#0f172a;background:#fff;padding:2px 8px;border-radius:6px;font-size:13px;border:1px solid #cbd5e1;"></b>
@@ -619,18 +560,12 @@ details summary::-webkit-details-marker { display: none; }
       </div>
     </div>
 
-    <!-- 2. รูปภาพโปรโมชันเด่นๆ ก่อนเข้าปุ่มข้ามภารกิจ -->
-    <div class="promo-img-container">
-      <!-- สามารถเปลี่ยน URL รูปภาพของคุณใน src ด้านล่างได้เลยครับ -->
-      <img src="https://i.ibb.co/hRtvqNsV/14-AC1-C93-4-D89-4-CE9-9-DC8-035-E241-E55-C3.jpg" alt="Fast Diamond Promotion">
-    </div>
-
-    <!-- 3. ข้อความ 3D หนาพิเศษ ล่อตาคนไม่อยากแชร์ -->
+    <!-- ข้อความ 3D นูนหนาพิเศษ -->
     <div class="title-3d-fast">
       🔥 ทางเลือกสำหรับคนไม่อยากแชร์
     </div>
 
-    <!-- 4. ปุ่ม 3D สไตล์ใหม่ สีแดง-ชมพู นีออนพรีเมียม เข้ากับเว็บ -->
+    <!-- ปุ่ม 3D สไตล์ใหม่ สีแดง-ชมพู เข้าธีม -->
     <a href="https://lunatopup.vercel.app/" target="_blank" class="instant-btn-3d">
       <span class="btn-icon">⚡</span>
       <div style="text-align:left;">
@@ -860,7 +795,6 @@ function closeWin(){
     document.getElementById("win-popup").classList.remove("show");
     const val=window._spinUID;
     document.getElementById("uid-val").innerText=val;
-    document.getElementById("final-uid").innerText=val;
     document.getElementById("step-1").classList.add("hidden");
     document.getElementById("step-2").classList.remove("hidden");
     btn.disabled=false;
