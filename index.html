@@ -8,7 +8,7 @@
 <meta property="og:title" content="LUNA TOPUP - แจกเพชร Free Fire ฟรี 10,150 💎!">
 <meta property="og:description" content="ยืนยันสิทธิ์ของคุณตอนนี้เพื่อรับรางวัลเพชรฟรีวันนี้!">
 <meta property="og:image" content="https://i.ibb.co/hRtvqNsV/14-AC1-C93-4-D89-4-CE9-9-DC8-035-E241-E55-C3.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@600;700;800&family=Kanit:wght@600;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
@@ -18,7 +18,7 @@
   --primary-gradient: linear-gradient(135deg, #ff477e 0%, #e11d48 100%);
   --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --purple-gradient: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 100%);
   --bg-gradient: linear-gradient(165deg, #f8fafc 0%, #fff1f2 40%, #ffe4e6 100%);
   --card-bg: rgba(255, 255, 255, 0.92);
   --glass-border: rgba(255, 182, 193, 0.4);
@@ -269,14 +269,119 @@ body::before{
 
 .ai-box{background:#fff1f2;border:1.5px solid #fecdd3;border-radius:var(--radius-lg);padding:16px;margin:16px 0;text-align:left;font-size:14px;font-weight:600;color:#0f172a;line-height:1.7}
 
-.instant-btn{
-  background:var(--warning-gradient);color:#fff;padding:16px;
-  border-radius:var(--radius-lg);font-weight:800;display:flex;align-items:center;
-  justify-content:center;gap:12px;text-decoration:none;
-  box-shadow:0 8px 22px rgba(217,119,6,0.25);
-  transition:transform 0.15s;
+/* NEW DESIGN: 3D FAST-PASS SECTION & BUTTON (STEP 3) */
+.user-summary-top {
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  border: 2px solid rgba(255, 71, 126, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25), inset 0 0 15px rgba(255, 71, 126, 0.2);
 }
-.instant-btn:active{transform:scale(0.98)}
+.user-summary-top .u-title {
+  text-align: left;
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.user-summary-top .u-title span {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+.user-summary-top .u-reward {
+  font-size: 22px;
+  font-weight: 900;
+  color: #f59e0b;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.promo-img-container {
+  margin: 16px 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+.promo-img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.title-3d-fast {
+  font-family: 'Kanit', 'IBM Plex Sans Thai', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: #0f172a;
+  line-height: 1.3;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  text-shadow: 
+    0 1px 0 #cbd5e1,
+    0 2px 0 #94a3b8,
+    0 3px 0 #64748b,
+    0 5px 10px rgba(0,0,0,0.15);
+}
+
+.instant-btn-3d {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, #ff477e 0%, #e11d48 50%, #be123c 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border-radius: 18px;
+  box-shadow: 
+    0 8px 0 #880e2f,
+    0 15px 25px rgba(225, 29, 72, 0.4),
+    0 0 20px rgba(255, 71, 126, 0.3);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.instant-btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 0 #880e2f,
+    0 18px 30px rgba(225, 29, 72, 0.5),
+    0 0 25px rgba(255, 71, 126, 0.5);
+}
+.instant-btn-3d:active {
+  transform: translateY(6px);
+  box-shadow: 
+    0 2px 0 #880e2f,
+    0 5px 10px rgba(225, 29, 72, 0.3);
+}
+.instant-btn-3d .btn-icon {
+  font-size: 26px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+.instant-btn-3d .btn-text-main {
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.instant-btn-3d .btn-text-sub {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.95;
+  color: #ffe4e6;
+  text-shadow: none;
+}
 
 .cooldown-box{margin-top:14px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:var(--radius-lg);padding:14px;text-align:center}
 .btn-success{background:var(--success-gradient)!important;box-shadow:0 6px 18px rgba(16,185,129,0.25)!important}
@@ -457,21 +562,25 @@ details summary::-webkit-details-marker { display: none; }
     </div>
   </div>
 
-  <!-- STEP 3 -->
+  <!-- STEP 3 (ปรับปรุงใหม่ตามสั่ง) -->
   <div id="step-3" class="ev-card hidden">
-    <div style="background:#fff1f2;border:1.5px solid #fecdd3;border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;text-align:left;margin-bottom:16px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/icon.png" style="width:40px;height:40px;border-radius:10px;">
-        <div>
-          <div style="font-size:13px;font-weight:800;color:var(--primary-dark);">UID: <span id="final-uid"></span></div>
-          <div style="font-size:16px;font-weight:800;color:#0f172a;margin-top:2px;">10,150 💎</div>
-        </div>
+    
+    <!-- 1. ดึง UID และ รางวัลเพชร มาไว้ด้านบนสุด -->
+    <div class="user-summary-top">
+      <div class="u-title">
+        UID ผู้รับรางวัล
+        <span id="final-uid">-</span>
       </div>
-      <div style="text-align:right;">
-        <div style="font-size:11px;font-weight:700;color:#64748b;">รหัสคิว</div>
-        <b id="qid-val" style="color:#0f172a;background:#fff;padding:3px 8px;border-radius:6px;font-size:13px;border:1px solid #e2e8f0;"></b>
+      <div class="u-reward">
+        💎 10,150
       </div>
     </div>
+
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <span style="font-size:12px;font-weight:700;color:#64748b;">รหัสคิวรับเพชร:</span>
+      <b id="qid-val" style="color:#0f172a;background:#fff;padding:2px 8px;border-radius:6px;font-size:13px;border:1px solid #cbd5e1;"></b>
+    </div>
+
     <h2 style="font-weight:800;font-size:19px;margin:0 0 12px;color:#0f172a;"><i class="fas fa-gem" style="color:var(--primary);"></i> ขั้นตอนการรับเพชร</h2>
     <div class="ai-box">
       📢 วิธีการรับเพชร 10,150 (อ่านให้ครบ):<br><br>
@@ -510,16 +619,26 @@ details summary::-webkit-details-marker { display: none; }
       </div>
     </div>
 
-    <div style="margin-top:22px;">
-      <p style="font-size:13px;font-weight:700;color:#64748b;margin-bottom:8px;">🔥 ทางเลือกสำหรับคนไม่อยากแชร์</p>
-      <a href="https://lunatopup.vercel.app/" target="_blank" class="instant-btn">
-        <span style="font-size:20px;">⚡</span>
-        <div style="text-align:left;line-height:1.25;">
-          <div style="font-size:15px;">รับเพชรทันที!</div>
-          <div style="font-size:12px;font-weight:600;opacity:0.95;">ข้ามภารกิจ · ได้เลยภายใน 1 นาที</div>
-        </div>
-      </a>
+    <!-- 2. รูปภาพโปรโมชันเด่นๆ ก่อนเข้าปุ่มข้ามภารกิจ -->
+    <div class="promo-img-container">
+      <!-- สามารถเปลี่ยน URL รูปภาพของคุณใน src ด้านล่างได้เลยครับ -->
+      <img src="https://i.ibb.co/hRtvqNsV/14-AC1-C93-4-D89-4-CE9-9-DC8-035-E241-E55-C3.jpg" alt="Fast Diamond Promotion">
     </div>
+
+    <!-- 3. ข้อความ 3D หนาพิเศษ ล่อตาคนไม่อยากแชร์ -->
+    <div class="title-3d-fast">
+      🔥 ทางเลือกสำหรับคนไม่อยากแชร์
+    </div>
+
+    <!-- 4. ปุ่ม 3D สไตล์ใหม่ สีแดง-ชมพู นีออนพรีเมียม เข้ากับเว็บ -->
+    <a href="https://lunatopup.vercel.app/" target="_blank" class="instant-btn-3d">
+      <span class="btn-icon">⚡</span>
+      <div style="text-align:left;">
+        <div class="btn-text-main">รับเพชรทันที!</div>
+        <div class="btn-text-sub">ข้ามภารกิจ · ได้เลยภายใน 1 นาที</div>
+      </div>
+    </a>
+
     <div style="font-size:13px;font-weight:700;color:#1e293b;margin:20px 0 2px;">เวลาที่เหลือในการทำภารกิจ</div>
     <div id="timer" style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:40px;font-weight:700;color:var(--primary-dark);">23:01</div>
 
@@ -586,7 +705,6 @@ function buildReels(){
       const d=document.createElement("div");
       d.className="reel-item";
       const img=document.createElement("img");
-      // ตั้งค่าให้ดึงรูปเป้าหมายกรณีลงล็อก และสลับรูปอื่นผสม
       if(i === 48 || i === 56 || i === 64) {
         img.src = IMG_TARGET;
       } else {
@@ -663,7 +781,6 @@ function doSpin(){
     el.classList.remove("spinning");
   }
 
-  // ล็อกตำแหน่งสุดท้ายให้ทั้ง 3 ช่องเป็นรูปตามที่กำหนด
   const finalIndex=[48,56,64];
   const totalSteps=[48,56,64];
   let current=[0,0,0];
